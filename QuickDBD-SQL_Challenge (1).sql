@@ -1,4 +1,8 @@
-﻿
+-- Exported from QuickDBD: https://www.quickdatabasediagrams.com/
+-- Link to schema: https://app.quickdatabasediagrams.com/#/d/0CKIdG
+
+
+
 CREATE TABLE Employees (
     Emp_No INT   NOT NULL,
     Title_ID Char(5)   NOT NULL,
@@ -14,7 +18,10 @@ CREATE TABLE Employees (
 
 CREATE TABLE Departments (
     Dept_No Char(4)   NOT NULL,
-    Dept_Name VarChar(25)   NOT NULL
+    Dept_Name VarChar(25)   NOT NULL,
+    CONSTRAINT pk_Departments PRIMARY KEY (
+        Dept_No
+     )
 );
 
 CREATE TABLE Dept_Emp (
@@ -43,7 +50,10 @@ CREATE TABLE Compensation (
 
 CREATE TABLE Title (
     Title_ID Char(5)   NOT NULL,
-    Title VarChar(20)   NOT NULL
+    Title VarChar(20)   NOT NULL,
+    CONSTRAINT pk_Title PRIMARY KEY (
+        Title_ID
+     )
 );
 
 ALTER TABLE Employees ADD CONSTRAINT fk_Employees_Emp_No FOREIGN KEY(Emp_No)

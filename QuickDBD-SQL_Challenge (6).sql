@@ -48,7 +48,7 @@ CREATE TABLE Compensation (
      )
 );
 
-CREATE TABLE Title (
+CREATE TABLE Position (
     Title_ID Char(5)   NOT NULL,
     Title VarChar(20)   NOT NULL,
     CONSTRAINT pk_Title PRIMARY KEY (
@@ -56,21 +56,4 @@ CREATE TABLE Title (
      )
 );
 
-ALTER TABLE Employees ADD CONSTRAINT fk_Employees_Emp_No FOREIGN KEY(Emp_No)
-REFERENCES Dept_Emp (Emp_No);
-
-ALTER TABLE Employees ADD CONSTRAINT fk_Employees_Title_ID FOREIGN KEY(Title_ID)
-REFERENCES Title (Title_ID);
-
-ALTER TABLE Departments ADD CONSTRAINT fk_Departments_Dept_No FOREIGN KEY(Dept_No)
-REFERENCES Dept_Emp (Dept_No);
-
-ALTER TABLE Department_Managers ADD CONSTRAINT fk_Department_Managers_Dept_No FOREIGN KEY(Dept_No)
-REFERENCES Departments (Dept_No);
-
-ALTER TABLE Department_Managers ADD CONSTRAINT fk_Department_Managers_Emp_No FOREIGN KEY(Emp_No)
-REFERENCES Employees (Emp_No);
-
-ALTER TABLE Compensation ADD CONSTRAINT fk_Compensation_Emp_No FOREIGN KEY(Emp_No)
-REFERENCES Employees (Emp_No);
 
